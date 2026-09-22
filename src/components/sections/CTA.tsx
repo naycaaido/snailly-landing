@@ -12,7 +12,7 @@ export function CTA() {
           </p>
         </div>
         <a
-          href="#contact"
+          href="mailto:ariq@codelabspace.or.id"
           className="w-fit shrink-0 rounded-full bg-primary px-8 py-4 text-sm font-medium text-white hover:bg-primary-dark"
         >
           Get in touch
