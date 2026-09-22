@@ -4,19 +4,23 @@ const STEPS = [
   {
     title: 'Exploring Online World',
     description: 'Children explore websites and social media freely for learning and entertainment.',
+    img: './step-1.jpg'
   },
   {
     title: 'Snailly Blocks Harmful Content',
     description:
       'Negative text, images, and videos are automatically detected and blocked in real time across websites and social media platforms.',
+      img: './step-2.jpg'
   },
   {
     title: 'Real-Time Notification',
     description: 'Parents instantly receive alerts whenever harmful content is detected.',
+    img: './step-3.jpg'
   },
   {
     title: 'Daily & Monthly Reports',
     description: "Parents get detailed activity reports, helping them monitor and guide children's internet usage.",
+    img: './step-4.jpg'
   },
 ]
 
@@ -24,7 +28,7 @@ export function SafeBrowsingJourney() {
   return (
     <section id="how-it-works" className="mx-auto max-w-[1300px] px-6 py-20">
       <ScrollFade className="mx-auto mb-16 flex max-w-[650px] flex-col items-center gap-3 text-center">
-        <span className="text-xs font-medium tracking-wide text-body bg-[#F9F7F2] p-2 rounded-2xl">HOW DOES IT WORK</span>
+        <span className="text-xs font-medium tracking-wid bg-[#F9F7F2] p-2 rounded-2xl">HOW DOES IT WORK</span>
         <h2 className="text-3xl font-bold md:text-[52px]">Safe Browsing Journey</h2>
       </ScrollFade>
 
@@ -36,9 +40,11 @@ export function SafeBrowsingJourney() {
               i % 2 === 1 ? 'md:flex-row-reverse' : ''
             }`}
           >
-            <div className="aspect-[607/456] w-full max-w-[500px] shrink-0 rounded-[24px] bg-primary" />
+            <div className="aspect-[607/456] w-full max-w-[500px] shrink-0 rounded-[24px] bg-primary">
+            <img src={step.img} alt="" />
+            </div>
             <div className="flex flex-col gap-3">
-              <span className="text-4xl font-bold text-ink/20">Step {i + 1}</span>
+              <span className="text-4xl font-bold text-black">Step {i + 1}</span>
               <h3 className="text-2xl font-bold">{step.title}</h3>
               <p className="max-w-[530px] text-base text-body">{step.description}</p>
             </div>

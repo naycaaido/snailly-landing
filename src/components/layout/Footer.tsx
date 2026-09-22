@@ -1,9 +1,9 @@
 export function Footer() {
   return (
     <footer className="mx-auto max-w-[1300px] px-6 py-10">
-      <div className="flex flex-col gap-6 border-t border-ink/10 pt-8">
+      <div className="flex flex-col gap-6 pt-8">
         <a href="#top" className="flex w-fit items-center gap-2">
-          <img src="./snailly-logo.png" alt="Snailly" className="h-8 w-auto" />
+          <img src="./snailly-logo.png" alt="Snailly" className="h-15 w-auto" />
         </a>
 
         <div className="flex flex-col gap-4 border-t border-ink/10 pt-6 sm:flex-row sm:items-center sm:justify-between">

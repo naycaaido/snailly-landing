@@ -53,7 +53,7 @@ export function Hero() {
               initial={{ opacity: 0, scale: 0.85 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: CIRCLE_DELAY, ease: 'easeOut' }}
-              className="pointer-events-none absolute -inset-x-3 -inset-y-4 h-[calc(100%+2rem)] w-[calc(100%+rem)] object-contain"
+              className="pointer-events-none absolute -inset-x-3 -inset-y-8 hidden h-[calc(100%+4rem)] w-[calc(100%+4rem)] object-contain md:block"
             />
           </span>
           , While You Stay Worry-Free.

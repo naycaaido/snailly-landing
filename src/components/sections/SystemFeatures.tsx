@@ -8,8 +8,9 @@ const FEATURES = {
     title: 'Surfior — Safe Surfing Filter',
     description:
       "Snailly's built-in browser, the only way children browse the web and social media on a protected device. Page text is scanned by AI before it's shown, images stay hidden until they pass a vision check, and video is checked by title, transcript, and sampled frames.",
-    tags: ['Inside Surfior', 'Third-party apps (IG, TikTok, YouTube)'],
-    note: 'Flagged content in third-party apps is blocked in an average of 0.7 seconds.',
+    tags: [],
+    note: '',
+    img: './surfior.png',
   },
   notifior: {
     tab: 'Notifior',
@@ -18,6 +19,7 @@ const FEATURES = {
       'Every flagged item sends a push notification with a short explanation, plus Block or Allow actions built right into the notification. Every decision feeds back into the classifier as training data.',
     tags: [],
     note: '',
+    img: './notifior.png',
   },
   reportior: {
     tab: 'Reportior',
@@ -26,6 +28,7 @@ const FEATURES = {
       "A dashboard of your child's activity in the same app, under your own login: safe/unsafe counts, most visited platforms, and a searchable history by date and category. One account manages multiple child profiles.",
     tags: [],
     note: '',
+    img: './repotior.png',
   },
 } as const
 
@@ -60,32 +63,48 @@ export function SystemFeatures() {
             </button>
           ))}
         </div>
+        {/* Hapus flex justify-between dari sini, pindahkan ke dalam motion.div */}
+        <div>
+          <AnimatePresence mode="wait">
+            {/* Bungkus text dan image dalam satu motion.div agar transisi mode="wait" mulus */}
+            <motion.div
+              key={active}
+              initial={{ opacity: 0, y: 12 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -12 }}
+              transition={{ duration: 0.3 }}
+              // Flex dipindah ke sini
+              className="flex flex-col md:flex-row justify-between items-center gap-10" 
+            >
+              {/* Bagian Teks */}
+              <div className="flex flex-col gap-4 md:max-w-[50%]">
+                <h3 className="text-2xl font-bold">{feature.title}</h3>
+                <p className="text-base leading-relaxed text-body">{feature.description}</p>
 
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={active}
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -12 }}
-            transition={{ duration: 0.3 }}
-            className="flex flex-col gap-4 md:max-w-[700px]"
-          >
-            <h3 className="text-2xl font-bold">{feature.title}</h3>
-            <p className="text-base leading-relaxed text-body">{feature.description}</p>
+                {feature.tags.length > 0 && (
+                  <div className="flex flex-wrap gap-2">
+                    {feature.tags.map((tag) => (
+                      <span key={tag} className="rounded-full bg-white px-3.5 py-2 text-xs font-medium text-primary">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
 
-            {feature.tags.length > 0 && (
-              <div className="flex flex-wrap gap-2">
-                {feature.tags.map((tag) => (
-                  <span key={tag} className="rounded-full bg-white px-3.5 py-2 text-xs font-medium text-primary">
-                    {tag}
-                  </span>
-                ))}
+                {feature.note && <p className="text-sm font-medium text-primary">{feature.note}</p>}
               </div>
-            )}
 
-            {feature.note && <p className="text-sm font-medium text-primary">{feature.note}</p>}
-          </motion.div>
-        </AnimatePresence>
+              {/* Bagian Gambar */}
+              <div className="relative w-full md:w-[50%] flex justify-center">
+                <img
+                  src={feature.img}
+                  alt={feature.title}
+                  className="w-full max-w-[200px] object-contain"
+                />
+              </div>
+            </motion.div>
+          </AnimatePresence>
+        </div>
       </div>
     </ScrollFade>
   )
