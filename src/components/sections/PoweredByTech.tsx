@@ -86,8 +86,8 @@ export function PoweredByTech() {
           </p>
         </div>
 
-        {/* Mobile: satu baris, auto-scroll horizontal */}
-        <div className="w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)] md:hidden">
+        {/* Mobile: satu baris, auto-scroll horizontal (edge fade dari MarqueeX) */}
+        <div className="w-full overflow-hidden md:hidden">
           <MarqueeX>
             {TECH_STACK.map((item) => (
               <TechCard key={item.name} {...item} />

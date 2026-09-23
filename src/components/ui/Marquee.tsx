@@ -1,6 +1,9 @@
 import type { ReactNode } from 'react'
 import { cx } from '../../lib/cx'
 
+const EDGE_FADE =
+  '[mask-image:linear-gradient(to_right,transparent_0%,black_10%,black_90%,transparent_100%)]'
+
 /** Infinite horizontal marquee. `direction="left"` matches the Partner With spec (right to left). */
 export function MarqueeX({
   children,
@@ -12,7 +15,7 @@ export function MarqueeX({
   className?: string
 }) {
   return (
-    <div className={cx('overflow-hidden', className)}>
+    <div className={cx('overflow-hidden', EDGE_FADE, className)}>
       <div
         className="flex w-max animate-marquee-x items-center gap-16"
         style={direction === 'right' ? { animationDirection: 'reverse' } : undefined}
