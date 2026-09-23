@@ -10,7 +10,7 @@ export function Footer() {
           </a>
 
           <div className="flex flex-col gap-4 border-t border-ink/10 pt-6">
-            <p className="text-xs text-body">© 2025 – Snailly</p>
+            <p className="text-xs text-body">© {new Date().getFullYear()} – Snailly</p>
           </div>
 
           <p className="max-w-2xl text-sm text-body">

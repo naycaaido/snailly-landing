@@ -1,32 +1,52 @@
-# React + TypeScript + Vite
+# Snailly — Landing Page
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Landing page marketing untuk **Snailly**, perlindungan internet berbasis AI untuk anak-anak. Halaman statis satu halaman (SPA) yang dibangun dari desain Figma.
 
-Currently, two official plugins are available:
+## Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+| Teknologi | Versi |
+|---|---|
+| [Vite](https://vite.dev) | 8 |
+| [React](https://react.dev) | 19 |
+| [TypeScript](https://www.typescriptlang.org) | 6 (`strict: true`) |
+| [Tailwind CSS](https://tailwindcss.com) | 4 (CSS-first, `@theme`) |
+| [Framer Motion](https://www.framer.com/motion) | 13 |
+| [oxlint](https://oxc.rs/docs/guide/usage/linter) | linter (pengganti ESLint) |
 
-## React Compiler
+## Scripts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm run dev      # dev server (http://localhost:5173)
+npm run build    # typecheck (tsc -b) + production build
+npm run preview  # preview hasil build
+npm run lint     # oxlint
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+## Struktur
+
+```
+src/
+├── main.tsx              # bootstrap React + MotionConfig
+├── App.tsx               # komposisi Navbar + sections + Footer
+├── index.css             # Tailwind v4 @theme (design tokens) + keyframes
+├── lib/
+│   └── cx.ts             # helper gabung className
+└── components/
+    ├── layout/           # chrome halaman (Navbar, Footer)
+    ├── sections/         # blok konten per section
+    └── ui/               # primitif reusable (Container, Button, Eyebrow, Marquee, ScrollFade)
+```
+
+## Design tokens
+
+Warna dan font didefinisikan sekali di `src/index.css` (`@theme`) dan dipakai sebagai utility class (`bg-primary`, `text-ink`, `font-heading`, …):
+
+- `--color-primary` `#47673b` · `--color-primary-dark` `#34492b`
+- `--color-ink` · `--color-body` · `--color-cream` · `--color-surface`
+- `--color-mock` · `--color-muted` · `--color-star`
+- `--font-heading` (IBM Plex Sans) · `--font-body` (Inter)
+
+## Catatan
+
+- URL production di `index.html` (canonical/OG) masih placeholder `https://snailly.example` — ganti sebelum deploy.
+- Konten pemasaran (copy, FAQ, testimoni) di-hardcode sebagai const di masing-masing section.
