@@ -5,42 +5,42 @@ const TECH_STACK = [
   {
     name: 'Firebase',
     desc: 'Parent Notifications',
-    img: 'https://framerusercontent.com/images/oYG9WuBvCjJJKQnu1KnryzPU.png',
+    img: '/firebase-logo.png',
   },
   {
     name: 'PostgreSQL',
     desc: 'Data Storage',
-    img: 'https://framerusercontent.com/images/qc36C3Cvh7W1VQTSi602D0vas.png',
+    img: '/postgresql-logo.png',
   },
   {
     name: 'Flask',
     desc: 'AI Service Backend',
-    img: 'https://framerusercontent.com/images/faQGiBXMov35YF3HH5h9pt15Vf0.png',
+    img: '/flask-logo.png',
   },
   {
     name: 'Express JS',
     desc: 'REST API Backend',
-    img: 'https://framerusercontent.com/images/2UIC1P9bGYdQcM8NNMiVwUajo.png',
+    img: '/express-logo.png',
   },
   {
     name: 'Azure OpenAI',
     desc: 'Intelligent Processing',
-    img: 'https://framerusercontent.com/images/gytX8atTL4Jqj7ncOZCjZ9iS4.png',
+    img: '/azure.png',
   },
   {
     name: 'Azure Speech',
     desc: 'Audio Detection',
-    img: 'https://framerusercontent.com/images/lryIn8wAXhDpNaSy5ImejLJn64.png',
+    img: '/speech-logo.png',
   },
   {
     name: 'MLLM Git-Large',
     desc: 'Image Captioning',
-    img: 'https://framerusercontent.com/images/ryFyQ6nHkfcWnK3yAJhmj2seozc.png',
+    img: '/face-logo.png',
   },
   {
     name: 'TensorFlow',
     desc: 'SVM Classification',
-    img: 'https://framerusercontent.com/images/xWRtoBJhrQ2mLx09TQDFg4trlo.png',
+    img: '/tensor-logo.png',
   },
 ] as const
 
