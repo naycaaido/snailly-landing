@@ -66,7 +66,7 @@ export function FAQ() {
     <ScrollFade as="section" id="faqs">
       <Container>
         <div className="mx-auto mb-14 flex max-w-[650px] flex-col items-center gap-3 text-center">
-          <h2 className="text-3xl font-bold md:text-4xl">FAQs</h2>
+          <h2 className="text-3xl font-semibold md:text-[52px] leading-[63px] tracking-[-2px]">FAQs</h2>
           <p className="text-sm text-body">
             Have questions about how Snailly works? Find the answers here. If you don't see your question, feel free
             to reach out to our team!

@@ -54,7 +54,7 @@ export function Testimonials() {
       <Container>
         <div className="mx-auto mb-14 flex max-w-[600px] flex-col items-center gap-3 text-center">
           <Eyebrow>REVIEWS</Eyebrow>
-          <h2 className="text-3xl font-bold md:text-4xl">Trusted by Parents Across Indonesia</h2>
+          <h2 className="text-3xl font-semibold md:text-[52px] leading-[63px] tracking-[-2px]">Trusted by Parents Across Indonesia</h2>
         </div>
 
         <div className="flex flex-col gap-6">

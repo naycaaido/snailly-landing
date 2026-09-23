@@ -46,7 +46,7 @@ export function SystemFeatures() {
       <Container>
         <div className="mx-auto mb-10 flex max-w-[650px] flex-col items-center gap-4 text-center">
           <Eyebrow>SYSTEM FEATURES</Eyebrow>
-          <h2 className="text-3xl font-bold md:text-4xl">The System Behind Snailly</h2>
+          <h2 className="text-3xl font-semibold md:text-[52px] leading-[63px] tracking-[-2px]">The System Behind Snailly</h2>
           <p className="text-sm text-body">
             Three integrated components that work together, from screening what your child sees to keeping you
             informed.

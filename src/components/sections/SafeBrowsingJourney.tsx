@@ -33,7 +33,7 @@ export function SafeBrowsingJourney() {
       <Container>
         <ScrollFade className="mx-auto mb-16 flex max-w-[650px] flex-col items-center gap-3 text-center">
           <Eyebrow>HOW DOES IT WORK</Eyebrow>
-          <h2 className="text-3xl font-bold md:text-[52px]">Safe Browsing Journey</h2>
+          <h2 className="text-3xl font-semibold md:text-[52px] leading-[63px] tracking-[-2px]">Safe Browsing Journey</h2>
         </ScrollFade>
 
         <div className="flex flex-col gap-16">

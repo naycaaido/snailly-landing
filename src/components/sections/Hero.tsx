@@ -49,7 +49,7 @@ export function Hero() {
           animate="visible"
           className="flex max-w-[688px] flex-col gap-8"
         >
-          <motion.h1 variants={textItem} className="relative text-4xl font-semibold leading-[63px] md:text-[60px] tracking-[-3px]">
+          <motion.h1 variants={textItem} className="relative text-4xl font-semibold md:text-[60px] leading-[63px] tracking-[-3px]">
             Let Your Kids Explore{' '}
             <span className="relative inline-block">
               Safely

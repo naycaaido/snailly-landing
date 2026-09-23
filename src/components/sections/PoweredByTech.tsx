@@ -80,7 +80,7 @@ export function PoweredByTech() {
       <Container className="grid grid-cols-1 items-center gap-12 md:grid-cols-2">
         {/* Sisi Kiri: Content Header */}
         <div className="flex flex-col gap-4">
-          <h2 className="text-3xl font-bold md:text-4xl">Powered by Advanced AI &amp; Technology</h2>
+          <h2 className="text-3xl font-semibold md:text-[52px] leading-[63px] tracking-[-2px]">Powered by Advanced AI &amp; Technology</h2>
           <p className="max-w-md text-base text-body">
             Discover the advanced technologies we use to deliver reliable, efficient, and scalable solutions.
           </p>

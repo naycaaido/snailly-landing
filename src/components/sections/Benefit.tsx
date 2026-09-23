@@ -65,7 +65,7 @@ export function Benefit() {
         <div className="flex flex-col gap-8">
           <div className="flex flex-col gap-2">
             <Eyebrow className="w-fit">BENEFIT</Eyebrow>
-            <h2 className="text-3xl font-bold md:text-4xl">
+            <h2 className="text-3xl font-semibold md:text-[52px] leading-[63px] tracking-[-2px]">
               Smarter and more{' '}
               <span className="relative inline-block">
                 effective
