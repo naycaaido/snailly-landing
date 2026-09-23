@@ -11,6 +11,9 @@
   --color-primary: #47673b;
   --color-primary-dark: #34492b;
   --color-surface: #ffffff;
+  --color-mock: #fafafa;
+  --color-muted: #6d6d6d;
+  --color-star: #ffc107;
 }
 
 html {

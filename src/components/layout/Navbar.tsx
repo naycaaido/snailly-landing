@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
+import { Button } from '../ui/Button'
 
 const NAV_LINKS = [
   { label: 'About us', href: '#top' },
@@ -11,7 +12,17 @@ const NAV_LINKS = [
 
 function HamburgerIcon({ open }: { open: boolean }) {
   return (
-    <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round">
+    <svg
+      viewBox="0 0 24 24"
+      width="24"
+      height="24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden="true"
+      focusable="false"
+    >
       <motion.line x1="4" x2="20" animate={{ y1: open ? 12 : 7, y2: open ? 12 : 7, rotate: open ? 45 : 0 }} style={{ originX: '12px', originY: '12px' }} transition={{ duration: 0.2 }} />
       <motion.line x1="4" x2="20" y1="12" y2="12" animate={{ opacity: open ? 0 : 1 }} transition={{ duration: 0.15 }} />
       <motion.line x1="4" x2="20" animate={{ y1: open ? 12 : 17, y2: open ? 12 : 17, rotate: open ? -45 : 0 }} style={{ originX: '12px', originY: '12px' }} transition={{ duration: 0.2 }} />
@@ -21,6 +32,9 @@ function HamburgerIcon({ open }: { open: boolean }) {
 
 export function Navbar() {
   const [open, setOpen] = useState(false)
+  const toggleRef = useRef<HTMLButtonElement>(null)
+  const menuRef = useRef<HTMLElement>(null)
+  const wasOpen = useRef(false)
 
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -29,6 +43,16 @@ export function Navbar() {
     window.addEventListener('keydown', handleKeyDown)
     return () => window.removeEventListener('keydown', handleKeyDown)
   }, [])
+
+  useEffect(() => {
+    if (open) {
+      menuRef.current?.querySelector('a')?.focus()
+      wasOpen.current = true
+    } else if (wasOpen.current) {
+      toggleRef.current?.focus()
+      wasOpen.current = false
+    }
+  }, [open])
 
   return (
     <motion.header
@@ -39,10 +63,10 @@ export function Navbar() {
     >
       <div className="flex h-[92px] w-full max-w-[1800px] mx-auto items-center justify-between px-6 md:px-10">
         <a href="#top" className="text-lg font-semibold text-ink" onClick={() => setOpen(false)}>
-          <img className="w-[100px] h-full" src="./snailly-logo.png" alt="" />
+          <img className="w-[100px] h-full" src="./snailly-logo.png" alt="Snailly" />
         </a>
 
-        <nav className="hidden items-center gap-8 text-sm font-medium text-ink md:flex">
+        <nav aria-label="Main" className="hidden items-center gap-8 text-sm font-medium text-ink md:flex">
           {NAV_LINKS.map((link) => (
             <a key={link.href} href={link.href} className="hover:text-primary">
               {link.label}
@@ -54,17 +78,18 @@ export function Navbar() {
           <a href="mailto:ariq@codelabspace.or.id" className="text-sm font-medium text-ink hover:text-primary">
             Contact us
           </a>
-          <a
+          <Button
             href="https://play.google.com/store/apps/details?id=com.snailly.appname&pli=1"
+            size="sm"
             target="_blank"
             rel="noreferrer"
-            className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-dark"
           >
             Try Now!
-          </a>
+          </Button>
         </div>
 
         <button
+          ref={toggleRef}
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
@@ -79,7 +104,9 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
+            ref={menuRef}
             id="mobile-menu"
+            aria-label="Mobile"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -104,15 +131,16 @@ export function Navbar() {
               >
                 Contact us
               </a>
-              <a
+              <Button
                 href="https://play.google.com/store/apps/details?id=com.snailly.appname&pli=1"
+                size="sm"
                 target="_blank"
                 rel="noreferrer"
+                className="mt-2 w-full text-center"
                 onClick={() => setOpen(false)}
-                className="mt-2 w-full rounded-full bg-primary px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-primary-dark"
               >
                 Try Now!
-              </a>
+              </Button>
             </div>
           </motion.nav>
         )}

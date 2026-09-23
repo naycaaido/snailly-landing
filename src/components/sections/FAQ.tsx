@@ -1,5 +1,6 @@
-import { useState } from 'react'
+import { useId, useState } from 'react'
 import { ScrollFade } from '../ui/ScrollFade'
+import { Container } from '../ui/Container'
 
 const FAQS = [
   {
@@ -30,37 +31,54 @@ const FAQS = [
 
 function FaqItem({ q, a }: { q: string; a: string }) {
   const [open, setOpen] = useState(false)
+  const uid = useId()
+  const buttonId = `faq-btn-${uid}`
+  const panelId = `faq-panel-${uid}`
+
   return (
     <div className="border-b border-ink/10 py-5">
-      <button
-        onClick={() => setOpen((v) => !v)}
-        className="flex w-full items-center justify-between text-left text-base font-semibold text-ink"
-        aria-expanded={open}
-      >
-        {q}
-        <span className="ml-4 shrink-0 text-primary">{open ? '−' : '+'}</span>
-      </button>
-      {open && <p className="mt-3 text-sm text-body">{a}</p>}
+      <h3>
+        <button
+          type="button"
+          id={buttonId}
+          onClick={() => setOpen((v) => !v)}
+          className="flex w-full items-center justify-between text-left text-base font-semibold text-ink"
+          aria-expanded={open}
+          aria-controls={panelId}
+        >
+          {q}
+          <span className="ml-4 shrink-0 text-primary" aria-hidden="true">
+            {open ? '−' : '+'}
+          </span>
+        </button>
+      </h3>
+      {open && (
+        <p id={panelId} role="region" aria-labelledby={buttonId} className="mt-3 text-sm text-body">
+          {a}
+        </p>
+      )}
     </div>
   )
 }
 
 export function FAQ() {
   return (
-    <ScrollFade className="mx-auto max-w-[1300px] px-6 py-20" id="faqs">
-      <div className="mx-auto mb-14 flex max-w-[650px] flex-col items-center gap-3 text-center">
-        <h2 className="text-3xl font-bold md:text-4xl">FAQs</h2>
-        <p className="text-sm text-body">
-          Have questions about how Snailly works? Find the answers here. If you don't see your question, feel free
-          to reach out to our team!
-        </p>
-      </div>
+    <ScrollFade as="section" id="faqs">
+      <Container>
+        <div className="mx-auto mb-14 flex max-w-[650px] flex-col items-center gap-3 text-center">
+          <h2 className="text-3xl font-bold md:text-4xl">FAQs</h2>
+          <p className="text-sm text-body">
+            Have questions about how Snailly works? Find the answers here. If you don't see your question, feel free
+            to reach out to our team!
+          </p>
+        </div>
 
-      <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-x-16 md:grid-cols-2">
-        {FAQS.map((faq) => (
-          <FaqItem key={faq.q} {...faq} />
-        ))}
-      </div>
+        <div className="mx-auto grid max-w-[1300px] grid-cols-1 gap-x-16 md:grid-cols-2">
+          {FAQS.map((faq) => (
+            <FaqItem key={faq.q} {...faq} />
+          ))}
+        </div>
+      </Container>
     </ScrollFade>
   )
 }

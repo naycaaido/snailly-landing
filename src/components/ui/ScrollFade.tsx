@@ -6,22 +6,25 @@ export function ScrollFade({
   className,
   delay = 0,
   id,
+  as = 'div',
 }: {
   children: ReactNode
   className?: string
   delay?: number
   id?: string
+  as?: 'div' | 'section'
 }) {
+  const Component = as === 'section' ? motion.section : motion.div
   return (
-    <motion.div
+    <Component
       id={id}
       initial={{ opacity: 0, y: 24 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.3, margin: '0px 0px -15% 0px' }}
+      viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.6, ease: 'easeOut', delay }}
       className={className}
     >
       {children}
-    </motion.div>
+    </Component>
   )
 }

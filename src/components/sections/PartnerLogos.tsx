@@ -1,20 +1,23 @@
 import { ScrollFade } from '../ui/ScrollFade'
 import { MarqueeX } from '../ui/Marquee'
+import { Container } from '../ui/Container'
 
 // TODO: swap for real partner logo assets exported from Figma
 const PARTNERS = ['unikom-logo.png', 'codelabs-logo.png', 'unikom-logo.png', 'codelabs-logo.png']
 
 export function PartnerLogos() {
   return (
-    <ScrollFade className="mx-auto max-w-[1300px] px-6 py-12">
-      <p className="mb-8 text-center text-xl font-bold text-black pb-7">Partner With</p>
-      <MarqueeX>
-        {PARTNERS.map((name, i) => (
-          <span key={`${name}-${i}`} className="w-[250px] shrink-0 text-center text-lg font-semibold text-body/50">
-            <img src={name} alt="" />
-          </span>
-        ))}
-      </MarqueeX>
+    <ScrollFade as="section">
+      <Container py="py-12">
+        <h2 className="mb-8 pb-7 text-center text-xl font-bold text-ink">Partner With</h2>
+        <MarqueeX>
+          {PARTNERS.map((name, i) => (
+            <span key={`${name}-${i}`} className="w-[250px] shrink-0 text-center text-lg font-semibold text-body">
+              <img src={`/${name}`} alt="" loading="lazy" decoding="async" />
+            </span>
+          ))}
+        </MarqueeX>
+      </Container>
     </ScrollFade>
   )
 }
