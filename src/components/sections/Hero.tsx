@@ -103,7 +103,7 @@ export function Hero() {
         {/* 3. Overlay Mockup 4 */}
         <motion.div
           variants={imageItem}
-          className="absolute left-[33%] top-[35%] flex h-[7%] w-[60%] items-center justify-center rounded-2x"
+          className="absolute left-[33%] top-[35%] flex h-[7%] w-[60%] items-center justify-center rounded-2xl"
         >
           <img src="./overlay-mock-4.png" alt="" />
         </motion.div>
@@ -111,7 +111,7 @@ export function Hero() {
         {/* 4. Overlay Mockup 3 */}
         <motion.div
           variants={imageItem}
-          className="absolute left-[11%] top-[76%] flex h-[9%] w-[59%] items-center justify-center rounded-2x"
+          className="absolute left-[11%] top-[76%] flex h-[9%] w-[59%] items-center justify-center rounded-2xl"
         >
           <img src="./overlay-mock-3.png" alt="" />
         </motion.div>

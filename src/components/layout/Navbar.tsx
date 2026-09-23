@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 
 const NAV_LINKS = [
-  { label: 'About us', href: '#about' },
+  { label: 'About us', href: '#top' },
   { label: 'How it works', href: '#how-it-works' },
   { label: 'Benefit', href: '#benefit' },
   { label: 'Testimonial', href: '#testimonial' },
@@ -56,7 +56,8 @@ export function Navbar() {
           </a>
           <a
             href="https://play.google.com/store/apps/details?id=com.snailly.appname&pli=1"
-            target='_blank'
+            target="_blank"
+            rel="noreferrer"
             className="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-primary-dark"
           >
             Try Now!
@@ -67,6 +68,7 @@ export function Navbar() {
           type="button"
           aria-label="Toggle menu"
           aria-expanded={open}
+          aria-controls="mobile-menu"
           onClick={() => setOpen((v) => !v)}
           className="flex h-11 w-11 items-center justify-center rounded-full text-ink md:hidden"
         >
@@ -77,6 +79,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <motion.nav
+            id="mobile-menu"
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -103,7 +106,8 @@ export function Navbar() {
               </a>
               <a
                 href="https://play.google.com/store/apps/details?id=com.snailly.appname&pli=1"
-                target='_blank'
+                target="_blank"
+                rel="noreferrer"
                 onClick={() => setOpen(false)}
                 className="mt-2 w-full rounded-full bg-primary px-6 py-3 text-center text-sm font-medium text-white transition-colors hover:bg-primary-dark"
               >

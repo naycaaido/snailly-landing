@@ -6,19 +6,8 @@ export function Footer() {
           <img src="./snailly-logo.png" alt="Snailly" className="h-15 w-auto" />
         </a>
 
-        <div className="flex flex-col gap-4 border-t border-ink/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex flex-col gap-4 border-t border-ink/10 pt-6">
           <p className="text-xs text-body">© 2025 – Snailly</p>
-          <div className="flex gap-6 text-xs text-body">
-            <a href="#privacy" className="hover:text-ink">
-              Privacy Policy
-            </a>
-            <a href="#cookies" className="hover:text-ink">
-              Cookies
-            </a>
-            <a href="#terms" className="hover:text-ink">
-              Terms &amp; Conditions
-            </a>
-          </div>
         </div>
 
         <p className="max-w-2xl text-sm text-body">

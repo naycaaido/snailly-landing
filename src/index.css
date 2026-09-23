@@ -13,6 +13,11 @@
   --color-surface: #ffffff;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 92px; /* sticky header height */
+}
+
 body {
   margin: 0;
   font-family: var(--font-body);
@@ -73,6 +78,10 @@ p {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   .animate-marquee-x,
   .animate-marquee-y-down,
   .animate-marquee-y-up {
